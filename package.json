@@ -10,12 +10,15 @@
     }
   },
   "scripts": {
-    "build:tw": "echo 'Compiling...' && postcss ./src/tailwind.css -o ./src/css/styles.css && echo 'Tailwind - Done'",
-    "parcel:serve": "parcel ./src/index.html --target web",
-    "parcel:build": "parcel build ./src/index.html --target web",
+    "clean": "npm-run-all --parallel --silent clean:* && echo '√ Clean'",
+    "clean:dist": "rimraf ./dist",
+    "clean:cache": "rimraf ./.parcel-cache",
+    "p:serve": "parcel ./src/index.html --target web",
+    "p:build": "parcel build ./src/index.html --target web",
+    "tw:build": "postcss ./src/tailwind.css -o ./src/css/styles.css && echo '√ Tailwind'",
     ":": "",
-    "dev": "npm-run-all --silent build:* parcel:serve",
-    "prod": "cross-env NODE_ENV=production npm-run-all --silent build:* parcel:build"
+    "start": "npm-run-all --silent clean p:serve",
+    "build": "npm-run-all --silent clean p:build"
   },
   "author": "James Hill",
   "license": "ISC",

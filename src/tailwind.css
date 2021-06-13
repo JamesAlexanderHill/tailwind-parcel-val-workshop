@@ -1,9 +1,0 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
-@layer components {
-    .menu-item {
-        @apply flex items-center mx-2 px-4 py-8 border-b-2 border-transparent hover:border-primary;
-    }
-}

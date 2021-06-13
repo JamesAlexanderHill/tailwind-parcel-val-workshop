@@ -1,9 +1,14 @@
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: ['./src/**/*.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     fontFamily: {
       'heading': ['Teko', 'ui-monospace', 'SFMono-Regular'],
       'sub': ['Heebo', 'ui-monospace', 'SFMono-Regular'],
